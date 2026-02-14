@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>messi10 的个人空间 | 记录生活，分享美好</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #e5e5e5; /* 暗色系主文字色 */
+            background-color: #121212; /* 暗色系背景色 */
+        }
+
+        /* 顶部导航栏 */
+        .top-nav {
+            background-color: #1e1e1e; /* 导航栏暗色系背景 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #409eff;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #cccccc; /* 导航文字暗色系 */
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #409eff;
+            font-weight: 600;
+        }
+
+        /* 个人空间主体容器 */
+        .space-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* 左侧个人信息栏 */
+        .profile-sidebar {
+            flex: 1;
+        }
+
+        /* 个人资料卡片 */
+        .profile-card {
+            background-color: #1e1e1e; /* 卡片暗色系背景 */
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-header {
+            height: 120px;
+            background: linear-gradient(135deg, #0a66c2, #1a73e8); /* 暗色系渐变头图 */
+            position: relative;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid #1e1e1e; /* 适配暗色系边框 */
+            position: absolute;
+            bottom: -50px;
+            left: 2rem;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            padding: 60px 2rem 2rem;
+        }
+
+        .username {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #ffffff; /* 用户名高亮 */
+        }
+
+        .user-desc {
+            color: #999999; /* 描述文字暗色系 */
+            margin-bottom: 1rem;
+        }
+
+        .user-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: #2d2d2d; /* 标签暗色系背景 */
+            color: #409eff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 1rem;
+            border-top: 1px solid #333333; /* 分割线暗色系 */
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff; /* 数字高亮 */
+        }
+
+        .stat-text {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+
+        /* 兴趣爱好卡片 */
+        .hobby-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title i {
+            color: #409eff;
+        }
+
+        .hobby-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .hobby-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #cccccc;
+        }
+
+        .hobby-item i {
+            color: #67c23a;
+        }
+
+        /* 右侧内容区 */
+        .content-area {
+            flex: 2;
+        }
+
+        /* 发布动态框 */
+        .post-box {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-input {
+            width: 100%;
+            background-color: #2d2d2d; /* 输入框暗色系背景 */
+            border: 1px solid #333333;
+            color: #e5e5e5; /* 输入框文字色 */
+            border-radius: 8px;
+            padding: 1rem;
+            resize: none;
+            outline: none;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            min-height: 80px;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-icons a {
+            color: #999999;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .post-btn {
+            background-color: #409eff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .post-btn:hover {
+            background-color: #337ecc;
+        }
+
+        /* 动态列表 */
+        .feed-list {
+            margin-bottom: 2rem;
+        }
+
+        .feed-item {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feed-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feed-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .feed-author {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .feed-time {
+            font-size: 0.8rem;
+            color: #999999;
+        }
+
+        .feed-content {
+            color: #cccccc;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .feed-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .feed-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .feed-actions {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #333333;
+        }
+
+        .feed-action {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #999999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .feed-action:hover {
+            color: #409eff;
+        }
+
+        /* 相册预览 */
+        .album-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+
+        .album-img {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .album-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .space-container {
+                flex-direction: column;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feed-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+        }
+
+        /* 图标样式（简化版，实际项目可使用Font Awesome） */
+        i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #555555; /* 图标暗色系背景 */
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+
+        .icon-heart {
+            background-color: #f56c6c;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .icon-comment {
+            background-color: #409eff;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0 75%);
+        }
+
+        .icon-share {
+            background-color: #67c23a;
+            clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-wrapper">
+            <a href="#" class="logo">messi10 的个人空间</a>
+            <div class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">我的动态</a>
+                <a href="#">我的相册</a>
+                <a href="#">我的收藏</a>
+                <a href="#">设置</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 个人空间主体 -->
+    <div class="space-container">
+        <!-- 左侧个人信息栏 -->
+        <aside class="profile-sidebar">
+            <!-- 个人资料卡片 -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/100" alt="个人头像" class="avatar">
+                </div>
+                <div class="profile-info">
+                    <h2 class="username">messi10</h2>
+                    <p class="user-desc">热爱生活的程序员 | 摄影爱好者 | 旅行达人</p>
+                    <div class="user-tags">
+                        <span class="tag">前端开发</span>
+                        <span class="tag">摄影</span>
+                        <span class="tag">旅行</span>
+                        <span class="tag">美食</span>
+                        <span class="tag">阅读</span>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-num">128</div>
+                            <div class="stat-text">动态</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">256</div>
+                            <div class="stat-text">粉丝</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">189</div>
+                            <div class="stat-text">关注</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 兴趣爱好卡片 -->
+            <div class="hobby-card">
+                <h3 class="card-title"><i></i> 我的兴趣爱好</h3>
+                <div class="hobby-list">
+                    <div class="hobby-item"><i></i> 编程开发</div>
+                    <div class="hobby-item"><i></i> 户外摄影</div>
+                    <div class="hobby-item"><i></i> 徒步旅行</div>
+                    <div class="hobby-item"><i></i> 咖啡品鉴</div>
+                    <div class="hobby-item"><i></i> 阅读书籍</div>
+                    <div class="hobby-item"><i></i> 烹饪美食</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <main class="content-area">
+            <!-- 发布动态框 -->
+            <div class="post-box">
+                <textarea class="post-input" placeholder="分享你的新鲜事..."></textarea>
+                <div class="post-actions">
+                    <div class="action-icons">
+                        <a href="#"><i></i></a>
+                        <a href="#"><i></i></a>
+                        <a href="#"><i></i></a>
+                    </div>
+                    <button class="post-btn">发布</button>
+                </div>
+            </div>
+
+            <!-- 动态列表 -->
+            <div class="feed-list">
+                <!-- 动态1 -->
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
+                        <div>
+                            <div class="feed-author">messi10</div>
+                            <div class="feed-time">2小时前</div>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        今天去了郊外的森林公园徒步，天气超级好，随手拍了几张照片，分享给大家～
+                    </div>
+                    <div class="feed-images">
+                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo1" alt="风景照" class="feed-img">
+                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo2" alt="风景照" class="feed-img">
+                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo3" alt="风景照" class="feed-img">
+                    </div>
+                    <div class="feed-actions">
+                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (28)</div>
+                        <div class="feed-action"><i class="icon-comment"></i> 评论 (12)</div>
+                        <div class="feed-action"><i class="icon-share"></i> 分享 (5)</div>
+                    </div>
+                </div>
+
+                <!-- 动态2 -->
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
+                        <div>
+                            <div class="feed-author">messi10</div>
+                            <div class="feed-time">昨天 18:30</div>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        推荐一本最近在读的书《原子习惯》，里面关于习惯养成的方法真的很实用，分享给想要改变自己的小伙伴～
+                    </div>
+                    <div class="feed-actions">
+                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (45)</div>
+                        <div class="feed-action"><i class="icon-comment"></i> 评论 (18)</div>
+                        <div class="feed-action"><i class="icon-share"></i> 分享 (9)</div>
+                    </div>
+                </div>
+
+                <!-- 动态3 -->
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
+                        <div>
+                            <div class="feed-author">messi10</div>
+                            <div class="feed-time">3天前</div>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        周末在家尝试做了手冲咖啡，终于掌握了水粉比的技巧，口感比之前好太多了😋
+                    </div>
+                    <div class="feed-images">
+                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Coffee" alt="咖啡" class="feed-img">
+                    </div>
+                    <div class="feed-actions">
+                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (36)</div>
+                        <div class="feed-action"><i class="icon-comment"></i> 评论 (21)</div>
+                        <div class="feed-action"><i class="icon-share"></i> 分享 (7)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 相册预览 -->
+            <div class="album-card">
+                <h3 class="card-title"><i></i> 我的相册</h3>
+                <div class="album-grid">
+                    <img src="https://via.placeholder.com/200/FF6347/FFFFFF?text=Album1" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/4682B4/FFFFFF?text=Album2" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/32CD32/FFFFFF?text=Album3" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/FFD700/FFFFFF?text=Album4" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/9370DB/FFFFFF?text=Album5" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/FF69B4/FFFFFF?text=Album6" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/20B2AA/FFFFFF?text=Album7" alt="相册照片" class="album-img">
+                    <img src="https://via.placeholder.com/200/F08080/FFFFFF?text=Album8" alt="相册照片" class="album-img">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
