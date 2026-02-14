@@ -100,6 +100,9 @@
             bottom: -50px;
             left: 2rem;
             object-fit: cover;
+            /* 新增：确保图片加载失败时有备用样式 */
+            background-color: #333;
+            display: block;
         }
 
         .profile-info {
@@ -348,7 +351,8 @@
             <!-- 个人资料卡片 -->
             <div class="profile-card">
                 <div class="profile-header">
-                    <img src="https://via.placeholder.com/100" alt="个人头像" class="avatar">
+                    <!-- 替换为可访问的头像链接 -->
+                    <img src="https://picsum.photos/200/200?random=1" alt="个人头像" class="avatar">
                 </div>
                 <div class="profile-info">
                     <h2 class="username">messi10</h2>
@@ -414,8 +418,6 @@
                     <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.IRx463oTaocLVhd5kUyzjQHaEn?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="相册照片" class="album-img">
                     <img src="https://p3.itc.cn/q_70/images01/20221219/492590a9ba114397ac77ff7f848bdfed.jpeg" alt="相册照片" class="album-img">
                     <img src="https://ts1.tc.mm.bing.net/th/id/R-C.b994170739e7cbfc4fac2b473c91aad1?rik=0HYH%2bloJR14PMg&riu=http%3a%2f%2fimg1.dongqiudi.com%2ffastdfs1%2fM00%2fA6%2fAC%2fpIYBAFmD4sCAE8gcAAR7Shjddr8518.jpg&ehk=RkyAoKK8MMIgQ7Vxemu2kUUqNAXaJqZhYuiBByVGbKk%3d&risl=&pid=ImgRaw&r=0" alt="相册照片" class="album-img">
-        
-                   
                 </div>
             </div>
         </main>
