@@ -254,84 +254,6 @@
             background-color: #337ecc;
         }
 
-        /* 动态列表 */
-        .feed-list {
-            margin-bottom: 2rem;
-        }
-
-        .feed-item {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feed-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .feed-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .feed-author {
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .feed-time {
-            font-size: 0.8rem;
-            color: #999999;
-        }
-
-        .feed-content {
-            color: #cccccc;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .feed-images {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .feed-img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .feed-actions {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 1rem;
-            border-top: 1px solid #333333;
-        }
-
-        .feed-action {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #999999;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .feed-action:hover {
-            color: #409eff;
-        }
-
         /* 相册预览 */
         .album-card {
             background-color: #1e1e1e;
@@ -484,86 +406,16 @@
                 </div>
             </div>
 
-            <!-- 动态列表 -->
-            <div class="feed-list">
-                <!-- 动态1 -->
-                <div class="feed-item">
-                    <div class="feed-header">
-                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
-                        <div>
-                            <div class="feed-author">messi10</div>
-                            <div class="feed-time">2小时前</div>
-                        </div>
-                    </div>
-                    <div class="feed-content">
-                        今天去了郊外的森林公园徒步，天气超级好，随手拍了几张照片，分享给大家～
-                    </div>
-                    <div class="feed-images">
-                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo1" alt="风景照" class="feed-img">
-                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo2" alt="风景照" class="feed-img">
-                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Photo3" alt="风景照" class="feed-img">
-                    </div>
-                    <div class="feed-actions">
-                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (28)</div>
-                        <div class="feed-action"><i class="icon-comment"></i> 评论 (12)</div>
-                        <div class="feed-action"><i class="icon-share"></i> 分享 (5)</div>
-                    </div>
-                </div>
-
-                <!-- 动态2 -->
-                <div class="feed-item">
-                    <div class="feed-header">
-                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
-                        <div>
-                            <div class="feed-author">messi10</div>
-                            <div class="feed-time">昨天 18:30</div>
-                        </div>
-                    </div>
-                    <div class="feed-content">
-                        推荐一本最近在读的书《原子习惯》，里面关于习惯养成的方法真的很实用，分享给想要改变自己的小伙伴～
-                    </div>
-                    <div class="feed-actions">
-                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (45)</div>
-                        <div class="feed-action"><i class="icon-comment"></i> 评论 (18)</div>
-                        <div class="feed-action"><i class="icon-share"></i> 分享 (9)</div>
-                    </div>
-                </div>
-
-                <!-- 动态3 -->
-                <div class="feed-item">
-                    <div class="feed-header">
-                        <img src="https://via.placeholder.com/50" alt="头像" class="feed-avatar">
-                        <div>
-                            <div class="feed-author">messi10</div>
-                            <div class="feed-time">3天前</div>
-                        </div>
-                    </div>
-                    <div class="feed-content">
-                        周末在家尝试做了手冲咖啡，终于掌握了水粉比的技巧，口感比之前好太多了😋
-                    </div>
-                    <div class="feed-images">
-                        <img src="https://via.placeholder.com/300/808080/FFFFFF?text=Coffee" alt="咖啡" class="feed-img">
-                    </div>
-                    <div class="feed-actions">
-                        <div class="feed-action"><i class="icon-heart"></i> 点赞 (36)</div>
-                        <div class="feed-action"><i class="icon-comment"></i> 评论 (21)</div>
-                        <div class="feed-action"><i class="icon-share"></i> 分享 (7)</div>
-                    </div>
-                </div>
-            </div>
-
             <!-- 相册预览 -->
             <div class="album-card">
                 <h3 class="card-title"><i></i> 我的相册</h3>
                 <div class="album-grid">
-                    <img src="https://via.placeholder.com/200/FF6347/FFFFFF?text=Album1" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/4682B4/FFFFFF?text=Album2" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/32CD32/FFFFFF?text=Album3" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/FFD700/FFFFFF?text=Album4" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/9370DB/FFFFFF?text=Album5" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/FF69B4/FFFFFF?text=Album6" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/20B2AA/FFFFFF?text=Album7" alt="相册照片" class="album-img">
-                    <img src="https://via.placeholder.com/200/F08080/FFFFFF?text=Album8" alt="相册照片" class="album-img">
+                    <img src="https://x0.ifengimg.com/res/2022/207F7A831CA2F908FBE6230BD8233AF6D5C884A1_size1617_w2500_h1667.jpg" alt="相册照片" class="album-img">
+                    <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.IRx463oTaocLVhd5kUyzjQHaEn?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="相册照片" class="album-img">
+                    <img src="https://p3.itc.cn/q_70/images01/20221219/492590a9ba114397ac77ff7f848bdfed.jpeg" alt="相册照片" class="album-img">
+                    <img src="https://ts1.tc.mm.bing.net/th/id/R-C.b994170739e7cbfc4fac2b473c91aad1?rik=0HYH%2bloJR14PMg&riu=http%3a%2f%2fimg1.dongqiudi.com%2ffastdfs1%2fM00%2fA6%2fAC%2fpIYBAFmD4sCAE8gcAAR7Shjddr8518.jpg&ehk=RkyAoKK8MMIgQ7Vxemu2kUUqNAXaJqZhYuiBByVGbKk%3d&risl=&pid=ImgRaw&r=0" alt="相册照片" class="album-img">
+        
+                   
                 </div>
             </div>
         </main>
