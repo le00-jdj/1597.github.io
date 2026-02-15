@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>messi10 的个人空间 | 记录生活，分享美好</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <style>
         /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
+            font-family: 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
         }
 
         body {
             line-height: 1.6;
-            color: #e5e5e5; /* 暗色系主文字色 */
-            background-color: #121212; /* 暗色系背景色 */
+            color: #4a4a4a;
+            background-color: #fdf2f8; /* 淡粉色背景 */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f8d7e3' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* 顶部导航栏 */
+        /* 顶部导航栏 - 强化半透明效果 */
         .top-nav {
-            background-color: #1e1e1e; /* 导航栏暗色系背景 */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
             padding: 0.8rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
         .nav-wrapper {
@@ -40,9 +43,17 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #409eff;
+            font-weight: 500;
+            color: #d695b8; /* 淡粉色主色 */
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: #d695b8;
+            font-size: 1.8rem;
         }
 
         .nav-menu {
@@ -51,15 +62,30 @@
         }
 
         .nav-menu a {
-            color: #cccccc; /* 导航文字暗色系 */
+            color: #777;
             text-decoration: none;
             font-size: 1rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .nav-menu a:hover, .nav-menu a.active {
-            color: #409eff;
-            font-weight: 600;
+            color: #d695b8;
+            font-weight: 500;
+            border-bottom: 2px solid #d695b8;
+        }
+
+        /* 正方形头像 - 顶部导航 */
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid #f8d7e3; /* 淡粉色边框 */
+            object-fit: cover;
+            cursor: pointer;
+            background-color: #fef7fb; /* 浅粉色背景 */
         }
 
         /* 个人空间主体容器 */
@@ -71,38 +97,65 @@
             gap: 2rem;
         }
 
-        /* 左侧个人信息栏 */
+        /* 左侧个人信息栏 - 宽度缩小 */
         .profile-sidebar {
-            flex: 1;
+            flex: 0.8;
         }
 
-        /* 个人资料卡片 */
+        /* 个人资料卡片 - 强化半透明效果 */
         .profile-card {
-            background-color: #1e1e1e; /* 卡片暗色系背景 */
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow: hidden;
             margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
         .profile-header {
             height: 120px;
-            background: linear-gradient(135deg, #0a66c2, #1a73e8); /* 暗色系渐变头图 */
+            background: linear-gradient(135deg, rgba(253, 242, 248, 0.8), rgba(251, 233, 241, 0.8)); /* 淡粉色渐变 */
             position: relative;
         }
 
+        .profile-header .edit-cover {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background-color: rgba(255,255,255,0.7);
+            color: #d695b8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #f8d7e3;
+        }
+
+        .profile-header .edit-cover:hover {
+            background-color: rgba(255,255,255,1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* 正方形头像 - 个人资料 */
         .avatar {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
-            border: 5px solid #1e1e1e; /* 适配暗色系边框 */
+            border-radius: 6px;
+            border: 4px solid #ffffff;
             position: absolute;
             bottom: -50px;
             left: 2rem;
             object-fit: cover;
-            /* 新增：确保图片加载失败时有备用样式 */
-            background-color: #333;
+            background-color: #fef7fb;
             display: block;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .avatar:hover {
+            transform: scale(1.03);
         }
 
         .profile-info {
@@ -111,14 +164,28 @@
 
         .username {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 500;
             margin-bottom: 0.5rem;
-            color: #ffffff; /* 用户名高亮 */
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .username .vip-tag {
+            background-color: rgba(255, 239, 247, 0.8); /* 淡粉色VIP标签 */
+            color: #d695b8;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-weight: normal;
+            border: 1px solid #f8d7e3;
         }
 
         .user-desc {
-            color: #999999; /* 描述文字暗色系 */
+            color: #888;
             margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .user-tags {
@@ -129,55 +196,77 @@
         }
 
         .tag {
-            background-color: #2d2d2d; /* 标签暗色系背景 */
-            color: #409eff;
+            background-color: rgba(251, 233, 241, 0.8); /* 淡粉色标签 */
+            color: #d695b8;
             padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            border-radius: 16px;
             font-size: 0.8rem;
+            transition: all 0.3s;
+            border: 1px solid #f0e0e8;
+        }
+
+        .tag:hover {
+            background-color: #fdf2f8;
+            transform: translateY(-1px);
         }
 
         .profile-stats {
             display: flex;
             justify-content: space-around;
             padding-top: 1rem;
-            border-top: 1px solid #333333; /* 分割线暗色系 */
+            border-top: 1px solid #f8d7e3; /* 淡粉色边框 */
         }
 
         .stat-item {
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .stat-item:hover {
+            background-color: rgba(253, 242, 248, 0.9);
+            transform: translateY(-2px);
         }
 
         .stat-num {
             font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffffff; /* 数字高亮 */
+            font-weight: 500;
+            color: #333;
         }
 
         .stat-text {
             font-size: 0.8rem;
-            color: #999999;
+            color: #888;
         }
 
-        /* 兴趣爱好卡片 */
+        /* 兴趣爱好卡片 - 强化半透明 */
         .hobby-card {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
         .card-title {
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 500;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #333;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f8d7e3;
         }
 
         .card-title i {
-            color: #409eff;
+            color: #d695b8;
+            font-size: 1.4rem;
         }
 
         .hobby-list {
@@ -190,39 +279,73 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #cccccc;
+            color: #666;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .hobby-item:hover {
+            background-color: rgba(253, 242, 248, 0.9);
         }
 
         .hobby-item i {
-            color: #67c23a;
+            color: #d695b8;
+            font-size: 1rem;
         }
 
         /* 右侧内容区 */
         .content-area {
-            flex: 2;
+            flex: 2.2;
         }
 
-        /* 发布动态框 */
+        /* 发布动态框 - 强化半透明 */
         .post-box {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 正方形发布框头像 */
+        .post-header-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid #f8d7e3;
+            background-color: #fef7fb;
         }
 
         .post-input {
             width: 100%;
-            background-color: #2d2d2d; /* 输入框暗色系背景 */
-            border: 1px solid #333333;
-            color: #e5e5e5; /* 输入框文字色 */
-            border-radius: 8px;
+            background-color: rgba(253, 242, 248, 0.9);
+            border: 1px solid #f8d7e3;
+            color: #4a4a4a;
+            border-radius: 6px;
             padding: 1rem;
             resize: none;
             outline: none;
             font-size: 1rem;
             margin-bottom: 1rem;
             min-height: 80px;
+            transition: border-color 0.3s;
+        }
+
+        .post-input:focus {
+            border-color: #d695b8;
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
         .post-actions {
@@ -233,37 +356,78 @@
 
         .action-icons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .action-icons a {
-            color: #999999;
+            color: #888;
             text-decoration: none;
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s;
+        }
+
+        .action-icons a span {
+            font-size: 0.9rem;
+        }
+
+        .action-icons a:hover {
+            color: #d695b8;
         }
 
         .post-btn {
-            background-color: #409eff;
+            background-color: rgba(214, 149, 184, 0.9); /* 淡粉色按钮 */
             color: #fff;
             border: none;
             border-radius: 6px;
             padding: 0.5rem 1.5rem;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .post-btn:hover {
-            background-color: #337ecc;
+            background-color: #c47da1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* 相册预览 */
+        /* 相册预览 - 强化半透明 */
         .album-card {
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .album-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #f8d7e3;
+            padding-bottom: 0.8rem;
+        }
+
+        .album-more {
+            color: #d695b8;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .album-more:hover {
+            color: #c47da1;
+            text-decoration: underline;
         }
 
         .album-grid {
@@ -275,13 +439,54 @@
         .album-img {
             width: 100%;
             height: 100px;
-            border-radius: 8px;
+            border-radius: 6px;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #f8d7e3;
+            opacity: 0.95;
         }
 
         .album-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 1;
+        }
+
+        /* 底部版权 - 强化半透明 */
+        .footer {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #f8d7e3;
+            backdrop-filter: blur(8px);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d695b8;
+            text-decoration: underline;
         }
 
         /* 响应式设计 */
@@ -294,38 +499,41 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .feed-images {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .nav-menu {
                 gap: 1rem;
             }
+
+            .nav-menu span {
+                display: none;
+            }
+
+            .profile-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                flex: 1;
+                min-width: 80px;
+            }
         }
 
-        /* 图标样式（简化版，实际项目可使用Font Awesome） */
-        i {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            background-color: #555555; /* 图标暗色系背景 */
-            border-radius: 2px;
-            vertical-align: middle;
-        }
+        @media (max-width: 480px) {
+            .logo span {
+                display: none;
+            }
 
-        .icon-heart {
-            background-color: #f56c6c;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
+            .hobby-list {
+                grid-template-columns: 1fr;
+            }
 
-        .icon-comment {
-            background-color: #409eff;
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0 75%);
-        }
+            .action-icons span {
+                display: none;
+            }
 
-        .icon-share {
-            background-color: #67c23a;
-            clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+            .action-icons {
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -333,14 +541,34 @@
     <!-- 顶部导航栏 -->
     <nav class="top-nav">
         <div class="nav-wrapper">
-            <a href="#" class="logo">messi10 的个人空间</a>
+            <a href="#" class="logo">
+                <i class="fa fa-star"></i>
+                <span>messi10 的个人空间</span>
+            </a>
             <div class="nav-menu">
-                <a href="#" class="active">首页</a>
-                <a href="#">我的动态</a>
-                <a href="#">我的相册</a>
-                <a href="#">我的收藏</a>
-                <a href="#">设置</a>
+                <a href="#" class="active">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-list"></i>
+                    <span>我的动态</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-picture-o"></i>
+                    <span>我的相册</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-bookmark"></i>
+                    <span>我的收藏</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span>设置</span>
+                </a>
             </div>
+            <!-- 替换为指定的头像链接 -->
+            <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.oHj-gj4787MpDShDzUoXpQHaNK?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="用户头像" class="user-avatar">
         </div>
     </nav>
 
@@ -351,11 +579,17 @@
             <!-- 个人资料卡片 -->
             <div class="profile-card">
                 <div class="profile-header">
-                    <!-- 替换为可访问的头像链接 -->
-                    <img src="https://picsum.photos/200/200?random=1" alt="个人头像" class="avatar">
+                    <div class="edit-cover">
+                        <i class="fa fa-camera"></i> 更换封面
+                    </div>
+                    <!-- 替换为指定的头像链接 -->
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.oHj-gj4787MpDShDzUoXpQHaNK?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="个人头像" class="avatar">
                 </div>
                 <div class="profile-info">
-                    <h2 class="username">messi10</h2>
+                    <h2 class="username">
+                        messi10
+                        <span class="vip-tag">VIP</span>
+                    </h2>
                     <p class="user-desc">热爱生活的程序员 | 摄影爱好者 | 旅行达人</p>
                     <div class="user-tags">
                         <span class="tag">前端开发</span>
@@ -366,16 +600,20 @@
                     </div>
                     <div class="profile-stats">
                         <div class="stat-item">
-                            <div class="stat-num">128</div>
+                            <div class="stat-num">0</div>
                             <div class="stat-text">动态</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-num">256</div>
+                            <div class="stat-num">0</div>
                             <div class="stat-text">粉丝</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-num">189</div>
+                            <div class="stat-num">0</div>
                             <div class="stat-text">关注</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">0</div>
+                            <div class="stat-text">相册</div>
                         </div>
                     </div>
                 </div>
@@ -383,14 +621,14 @@
 
             <!-- 兴趣爱好卡片 -->
             <div class="hobby-card">
-                <h3 class="card-title"><i></i> 我的兴趣爱好</h3>
+                <h3 class="card-title"><i class="fa fa-heart"></i> 我的兴趣爱好</h3>
                 <div class="hobby-list">
-                    <div class="hobby-item"><i></i> 编程开发</div>
-                    <div class="hobby-item"><i></i> 户外摄影</div>
-                    <div class="hobby-item"><i></i> 徒步旅行</div>
-                    <div class="hobby-item"><i></i> 咖啡品鉴</div>
-                    <div class="hobby-item"><i></i> 阅读书籍</div>
-                    <div class="hobby-item"><i></i> 烹饪美食</div>
+                    <div class="hobby-item"><i class="fa fa-code"></i> 编程开发</div>
+                    <div class="hobby-item"><i class="fa fa-camera"></i> 户外摄影</div>
+                    <div class="hobby-item"><i class="fa fa-tree"></i> 徒步旅行</div>
+                    <div class="hobby-item"><i class="fa fa-coffee"></i> 咖啡品鉴</div>
+                    <div class="hobby-item"><i class="fa fa-book"></i> 阅读书籍</div>
+                    <div class="hobby-item"><i class="fa fa-cutlery"></i> 烹饪美食</div>
                 </div>
             </div>
         </aside>
@@ -399,28 +637,53 @@
         <main class="content-area">
             <!-- 发布动态框 -->
             <div class="post-box">
-                <textarea class="post-input" placeholder="分享你的新鲜事..."></textarea>
+                <div class="post-header">
+                    <!-- 替换为指定的头像链接 -->
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.oHj-gj4787MpDShDzUoXpQHaNK?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="个人头像" class="post-header-avatar">
+                    <span class="text-dark font-medium">分享你的新鲜事...</span>
+                </div>
+                <textarea class="post-input" placeholder="这一刻的想法..."></textarea>
                 <div class="post-actions">
                     <div class="action-icons">
-                        <a href="#"><i></i></a>
-                        <a href="#"><i></i></a>
-                        <a href="#"><i></i></a>
+                        <a href="#"><i class="fa fa-image"></i> <span>图片</span></a>
+                        <a href="#"><i class="fa fa-video-camera"></i> <span>视频</span></a>
+                        <a href="#"><i class="fa fa-smile-o"></i> <span>表情</span></a>
+                        <a href="#"><i class="fa fa-map-marker"></i> <span>位置</span></a>
                     </div>
-                    <button class="post-btn">发布</button>
+                    <button class="post-btn">
+                        <i class="fa fa-paper-plane"></i> 发布
+                    </button>
                 </div>
             </div>
 
             <!-- 相册预览 -->
             <div class="album-card">
-                <h3 class="card-title"><i></i> 我的相册</h3>
+                <div class="album-header">
+                    <h3 class="card-title"><i class="fa fa-picture-o"></i> 我的相册</h3>
+                    <a href="#" class="album-more">查看全部 <i class="fa fa-angle-right"></i></a>
+                </div>
                 <div class="album-grid">
                     <img src="https://x0.ifengimg.com/res/2022/207F7A831CA2F908FBE6230BD8233AF6D5C884A1_size1617_w2500_h1667.jpg" alt="相册照片" class="album-img">
                     <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.IRx463oTaocLVhd5kUyzjQHaEn?cb=defcache2&defcache=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="相册照片" class="album-img">
                     <img src="https://p3.itc.cn/q_70/images01/20221219/492590a9ba114397ac77ff7f848bdfed.jpeg" alt="相册照片" class="album-img">
-                    <img src="https://ts1.tc.mm.bing.net/th/id/R-C.b994170739e7cbfc4fac2b473c91aad1?rik=0HYH%2bloJR14PMg&riu=http%3a%2f%2fimg1.dongqiudi.com%2ffastdfs1%2fM00%2fA6%2fAC%2fpIYBAFmD4sCAE8gcAAR7Shjddr8518.jpg&ehk=RkyAoKK8MMIgQ7Vxemu2kUUqNAXaJqZhYuiBByVGbKk%3d&risl=&pid=ImgRaw&r=0" alt="相册照片" class="album-img">
+                    
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- 底部版权 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">用户协议</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系我们</a>
+            </div>
+            <p>© 2026 messi10 的个人空间 - 记录生活，分享美好</p>
+            <p class="mt-1">日系简约风格设计，舒适视觉体验</p>
+        </div>
+    </footer>
 </body>
 </html>
